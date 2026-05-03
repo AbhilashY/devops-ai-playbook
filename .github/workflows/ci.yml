@@ -45,6 +45,13 @@ jobs:
             exit 1
           fi
 
+      - name: Debug AWS environment
+        run: |
+          echo "AWS_REGION=$AWS_REGION"
+          echo "AWS_ACCOUNT_ID=$AWS_ACCOUNT_ID"
+          echo "AWS_ACCESS_KEY_ID set? ${AWS_ACCESS_KEY_ID:+yes}"
+          echo "AWS_SECRET_ACCESS_KEY set? ${AWS_SECRET_ACCESS_KEY:+yes}"
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
